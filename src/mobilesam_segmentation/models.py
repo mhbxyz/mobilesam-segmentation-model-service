@@ -23,7 +23,8 @@ class MobileSamModel:
             better_quality: bool = False,
             with_contours: bool = True,
             use_retina: bool = True,
-            mask_random_color: bool = True
+            mask_random_color: bool = True,
+            bbox: tuple = None
     ):
         input_size = int(input_size)
         w, h = image.size
@@ -40,7 +41,7 @@ class MobileSamModel:
             scale=(1024 // input_size),
             better_quality=better_quality,
             mask_random_color=mask_random_color,
-            bbox=None,
+            bbox=bbox,
             use_retina=use_retina,
             with_contours=with_contours,
         )

@@ -17,6 +17,7 @@ async def segment_image(
     with_contours: bool = True,
     use_retina: bool = True,
     mask_random_color: bool = True,
+    bbox: str = None,
 ):
     if not file.content_type.startswith("image/"):
         raise HTTPException(status_code=400, detail="Invalid image file")
@@ -27,6 +28,19 @@ async def segment_image(
     except Exception:
         raise HTTPException(status_code=400, detail="Error processing image")
 
+    if bbox is not None:
+        try:
+            bbox_values = tuple(map(int, bbox.split(',')))
+            if len(bbox_values) != 4:
+                raise ValueError()
+        except Exception:
+            raise HTTPException(
+                status_code=400,
+                detail="Invalid bbox parameter. Expected format: left,upper,right,lower"
+            )
+    else:
+        bbox_values = None
+
     segmented_image = MobileSamModel().segment_everything(
         image,
         input_size=input_size,
@@ -34,6 +48,7 @@ async def segment_image(
         with_contours=with_contours,
         use_retina=use_retina,
         mask_random_color=mask_random_color,
+        bbox=bbox_values,
     )
 
     buf = io.BytesIO()
