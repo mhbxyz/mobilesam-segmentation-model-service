@@ -1,0 +1,26 @@
+[project]
+name = "mobilesam-segmentation-model-service"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi[standard]>=0.115.11",
+    "matplotlib>=3.10.1",
+    "mobile-sam",
+    "opencv-python>=4.11.0.86",
+    "timm>=1.0.15",
+    "torch>=2.6.0",
+    "torchvision>=0.21.0",
+    "uvicorn[standard]>=0.34.0",
+]
+
+[project.scripts]
+youclip = "mobilesam_segmentation_model_service:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv.sources]
+mobile-sam = { git = "https://github.com/dhkim2810/MobileSAM.git" }

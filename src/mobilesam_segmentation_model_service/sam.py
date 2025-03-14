@@ -19,7 +19,7 @@ matplotlib
 '''
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-sam_checkpoint = "./mobile_sam.pt"
+sam_checkpoint = "resources/mobile_sam.pt"
 model_type = "vit_t"
 
 mobile_sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
