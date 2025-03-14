@@ -1,16 +1,15 @@
 import io
 
-from fastapi import APIRouter, UploadFile, File, HTTPException
+from fastapi import APIRouter, UploadFile, File, HTTPException, Request
 from fastapi.responses import StreamingResponse
 from PIL import Image
-
-from mobilesam_segmentation.models import MobileSamModel
 
 router = APIRouter()
 
 
 @router.post("/segment-image")
 async def segment_image(
+    request: Request,
     file: UploadFile = File(...),
     input_size: int = 1024,
     better_quality: bool = False,
@@ -41,7 +40,8 @@ async def segment_image(
     else:
         bbox_values = None
 
-    segmented_image = MobileSamModel().segment_everything(
+    mobile_sam_model = request.app.model
+    segmented_image = mobile_sam_model.segment_everything(
         image,
         input_size=input_size,
         better_quality=better_quality,
