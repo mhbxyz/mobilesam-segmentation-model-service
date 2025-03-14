@@ -24,3 +24,8 @@ build-backend = "hatchling.build"
 
 [tool.uv.sources]
 mobile-sam = { git = "https://github.com/dhkim2810/MobileSAM.git" }
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
