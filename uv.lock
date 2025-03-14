@@ -670,7 +670,7 @@ version = "1.0"
 source = { git = "https://github.com/dhkim2810/MobileSAM.git#a00e905633954fa29c98c1d93f052847bc5fa0e2" }
 
 [[package]]
-name = "mobilesam-segmentation-model-service"
+name = "mobilesam-segmentation"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

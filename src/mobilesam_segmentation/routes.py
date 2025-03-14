@@ -4,7 +4,7 @@ from fastapi import APIRouter, UploadFile, File, HTTPException
 from fastapi.responses import StreamingResponse
 from PIL import Image
 
-from mobilesam_segmentation_model_service.models import MobileSamModel
+from mobilesam_segmentation.models import MobileSamModel
 
 router = APIRouter()
 

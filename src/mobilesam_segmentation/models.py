@@ -3,7 +3,7 @@ import torch
 from mobile_sam import SamAutomaticMaskGenerator, SamPredictor, sam_model_registry
 from PIL import Image
 
-from mobilesam_segmentation_model_service.tools import fast_process
+from mobilesam_segmentation.tools import fast_process
 
 
 class MobileSamModel:

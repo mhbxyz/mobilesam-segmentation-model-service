@@ -1,5 +1,5 @@
 [project]
-name = "mobilesam-segmentation-model-service"
+name = "mobilesam-segmentation"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.scripts]
-youclip = "mobilesam_segmentation_model_service:main"
+youclip = "mobilesam_segmentation:main"
 
 [build-system]
 requires = ["hatchling"]
