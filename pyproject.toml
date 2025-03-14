@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.scripts]
-youclip = "mobilesam_segmentation:main"
+mobilesam_segmentation = "mobilesam_segmentation:main"
 
 [build-system]
 requires = ["hatchling"]
