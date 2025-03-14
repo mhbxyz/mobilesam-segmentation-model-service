@@ -44,4 +44,4 @@ class MobileSamModel:
             use_retina=use_retina,
             with_contours=with_contours,
         )
-        return image
+        return fig
